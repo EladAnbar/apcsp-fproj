@@ -1,33 +1,69 @@
 #include <stdio.h>
 #include <string.h>
-int main() {
- char input[300];
-
- int fint;
- int sint;
- char action;
-printf("Welcome to Calc&Stor\n");
-printf("Please type two integers\n");
-printf("first input:/n");
-fgets(input ,300, stdin);
-sscanf(input, "%d", &fint);
-printf("second input:/n");
-fgets(input ,300, stdin);
-sscanf(input, "%d", &sint);
-printf("Would you like to add/subtract/divide/multiple the ints %d and %d/n", fint,sint);
-fgets(input, 300, stdin);
-sscanf(input, "%s",&action );
-  if (strcmp(&action, "add") == 0){
-   int ans =fint +sint;
-
-   printf("The answer is %d/n",ans);
-
-
-  }
-
-
-
-
+int Factorial(int arg1){
+int set = arg1;
+ for( int i=1;i<set;i++){
+ arg1 =arg1 *i;
+ }
+return arg1;
 }
+int main(int argc, char* argv[]) {
+if(argc >1){
+char input[300];
+int arg1;
+int arg2;
+int set;
+int n;
+int r;
+int temp;
+int s;
+char action;
+sscanf(argv[1], "%d", &arg1);
+if(sscanf(argv[2], "%d", &arg2)==0){
+sscanf(argv[2], "%c", &action);
+n = Factorial(arg1);
+}
+else{
+sscanf(argv[2], "%d", &arg2);
+sscanf(argv[3], "%c", &action);
+  n = Factorial(arg1);
+  r = Factorial(arg2);
+  temp =arg1-arg2;
+  s = Factorial(temp);
+}
+printf("action is %c",action);
+ if(argc==4&&action == 'P'){
+  int p =n/s;
+ printf("final ans of p %d",p);
+ }
+  if(argc==4&&action == 'C'){
+   int c = n/(r*s);
+   printf("final ans of c %d",c);
+  }
+ if(argc==3&&action == 'F'){
+     printf("final ans of f %d",n);
+ 
+ }
+ 
+ 
+ if(action=='F'&&argc==4){
+  printf("Error! You can either choose Permutation or Combination. Not Factorial. Please reset page and try again");
+ }
+ else{
+  if(argc==4&&action=='F'){
+  printf("Factorial can only have a number not also a r variable. Please reset page and try again");
+  }
+  else{
+   if(argc==3&&action!='F'){
+     printf("Combination and Permutation require two number inputs");
+   }
+  }
+ }
+}
+else{
+  printf("No Input. Plz input on command line.");
+}
+}
+ 
 
 
