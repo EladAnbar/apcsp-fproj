@@ -58,12 +58,20 @@ printf("action is %c",action);
      printf("Combination and Permutation require two number inputs");
    }
   }
- }
+  }
 }
+if(argc=3&&action=='F'){
+printf("Only put in numbers. Please put in characters");}
+}
+}
+if(argc=3&&action=='F'){
+Printf(" Factorial only requires 3 inputs. Please delete fourth input.");}
+} 
+if(argc=3&&action'F'){
+printf("Only put in characters. Please put in numbers as well");}
+
 else{
   printf("No Input. Plz input on command line.");
-}
-}
- 
-
+   }
+   }
 
